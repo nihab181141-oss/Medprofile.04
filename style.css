@@ -1,0 +1,357 @@
+/* ==========================================================================
+   DOCTOR PORTFOLIO TEMPLATE - STYLESHEET
+   ========================================================================== */
+
+/* 1. TAILWIND INTEGRATION */
+@import "tailwindcss";
+
+/* 2. THEME CONFIGURATION (Tailwind CSS v4 Standard) */
+@theme {
+  /* Font pairings for premium healthcare look */
+  --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-display: "Space Grotesk", var(--font-sans);
+
+  /* Precise remapping to requested premium healthcare color system */
+  --color-slate-50: #F1F5F9;   /* Secondary Background */
+  --color-slate-100: #E5E7EB;  /* Borders */
+  --color-slate-200: #E5E7EB;  /* Borders */
+  --color-slate-300: #D1D5DB;  
+  --color-slate-405: #9CA3AF;
+  --color-slate-400: #9CA3AF;
+  --color-slate-500: #6B7280;  /* Secondary Text */
+  --color-slate-600: #6B7280;  /* Secondary Text */
+  --color-slate-650: #6B7280;  /* Secondary Text */
+  --color-slate-800: #111827;  /* Primary Text */
+  --color-slate-900: #1C1C2E;  /* Charcoal Dark */
+  --color-slate-950: #1C1C2E;  /* Charcoal Dark */
+
+  --color-blue-50: #EFF6FF;
+  --color-blue-100: #DBEAFE;
+  --color-blue-200: #BFDBFE;
+  --color-blue-500: #2563EB;
+  --color-blue-600: #2563EB;   /* Primary Blue */
+  --color-blue-700: #1D4ED8;   /* Hover Blue */
+  --color-blue-800: #1D4ED8;   /* Hover Blue */
+
+  --color-indigo-50: #EEF2F6;
+  --color-indigo-100: #DBEAFE;
+  --color-indigo-500: #2563EB;
+  --color-indigo-600: #1C1C2E;  /* Charcoal Dark for header/premium look */
+  --color-indigo-650: #1C1C2E;
+
+  --color-emerald-50: #EAFAF1;
+  --color-emerald-500: #10B981; /* Success */
+  --color-emerald-600: #059669;
+  --color-emerald-700: #10B981;
+
+  --color-rose-500: #EF4444;    /* Error */
+  --color-red-500: #EF4444;     /* Error */
+
+  --color-amber-400: #F59E0B;   /* Warning / Star Stars */
+  --color-amber-450: #F59E0B;
+
+  /* Animation declarations */
+  --animate-float: float 4s ease-in-out infinite;
+  --animate-float-delayed: float 4s ease-in-out infinite 2s;
+  --animate-slide-up: slideUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-in: fadeIn 0.6s ease-out forwards;
+
+  /* Custom timing curves */
+  --ease-soft: cubic-bezier(0.16, 1, 0.3, 1);
+  
+  /* Core Brand Colors */
+  --color-brand-blue-glow: rgba(37, 99, 235, 0.15);
+  --color-brand-emerald-glow: rgba(16, 185, 129, 0.1);
+
+  /* Custom Keyframe animations definition */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+  @keyframes slideUp {
+    0% {
+      transform: translateY(40px);
+      opacity: 0;
+    }
+    100% {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+}
+
+/* ==========================================================================
+   3. EDITABLE VARIABLES
+   ========================================================================== */
+:root {
+  --border-radius-premium: 32px;
+  --transition-speed-smooth: 0.3s;
+  --color-brand-dark: #1C1C2E;
+  --color-brand-blue: #2563EB;
+}
+
+/* ==========================================================================
+   4. STICKY HEADER & NAV STATE STYLES (Charcoal Dark UI)
+   ========================================================================== */
+header.sticky-scrolled {
+  background-color: rgba(28, 28, 46, 0.95); /* Charcoal Dark translucent */
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 10px 30px -10px rgba(37, 99, 235, 0.2);
+}
+
+/* Make sure header text transitions to high-contrast white when scrolled */
+header.sticky-scrolled #nav-logo span.text-slate-900,
+header.sticky-scrolled #nav-logo .font-display {
+  color: #FFFFFF !important;
+}
+
+header.sticky-scrolled #nav-logo span.text-slate-500 {
+  color: #9CA3AF !important;
+}
+
+header.sticky-scrolled .nav-link {
+  color: #D1D5DB !important;
+}
+
+header.sticky-scrolled .nav-link:hover {
+  color: #2563EB !important;
+  background-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+header.sticky-scrolled .nav-link.active {
+  background-color: #2563EB !important;
+  color: #FFFFFF !important;
+}
+
+header.sticky-scrolled #mobile-menu-toggle {
+  color: #FFFFFF !important;
+}
+
+header.sticky-scrolled nav {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Header Links States */
+.nav-link {
+  transition: all var(--transition-speed-smooth) ease;
+  color: #6B7280;
+}
+
+.nav-link:hover {
+  color: #2563EB;
+  background-color: #F1F5F9;
+}
+
+.nav-link.active {
+  background-color: #2563EB !important;
+  color: white !important;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+}
+
+.mobile-nav-link.active {
+  background-color: rgba(37, 99, 235, 0.1) !important;
+  color: #2563EB !important;
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   5. INTERACTIVE ELEMENT STYLES & INTERSECTION OBSERVER STATES
+   ========================================================================== */
+
+/* Fade-In and Slide-Up triggers on scroll */
+.section-obs {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s var(--ease-soft), transform 0.8s var(--ease-soft);
+}
+
+.section-obs.section-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Premium Project Image Effects */
+.project-image {
+  box-shadow: 0 30px 60px -15px rgba(37, 99, 235, 0.12);
+}
+
+/* Blue-tinted Shadows and glowing styles for cards */
+article, .bg-white.rounded-3xl, .bg-white.rounded-2xl {
+  transition: all var(--transition-speed-smooth) ease;
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.03), 0 8px 10px -6px rgba(37, 99, 235, 0.02);
+}
+
+article:hover, .bg-white.rounded-3xl:hover, .bg-white.rounded-2xl:hover {
+  border-color: rgba(37, 99, 235, 0.2) !important;
+  box-shadow: 0 20px 35px -10px rgba(37, 99, 235, 0.08) !important;
+  transform: translateY(-2px);
+}
+
+/* Buttons visual overrides with glowing effects */
+a.inline-flex, a.flex, button {
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Focus and ring highlights */
+input:focus, select:focus, textarea:focus, button:focus-visible, a:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.35) !important;
+  border-color: #2563EB !important;
+}
+
+/* ==========================================================================
+   6. PREMIUM FAQ ACCORDION TRANSITIONS
+   ========================================================================== */
+.faq-item {
+  transition: border-color var(--transition-speed-smooth) ease, box-shadow var(--transition-speed-smooth) ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(37, 99, 235, 0.15);
+}
+
+.faq-item.active {
+  border-color: #2563EB;
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.08);
+}
+
+.faq-item.active .faq-button {
+  color: #2563EB;
+}
+
+.faq-item.active .faq-icon {
+  background-color: #EFF6FF;
+  color: #2563EB;
+}
+
+.faq-item.active .faq-icon i {
+  transform: rotate(180deg);
+}
+
+/* Smooth Accordion Body Slide Collapse */
+.faq-content {
+  transition: max-height 350ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ==========================================================================
+   7. SCROLL-TO-TOP FLOATER TOGGLE
+   ========================================================================== */
+#scroll-to-top.visible {
+  transform: scale(1);
+  opacity: 1;
+}
+
+#scroll-to-top {
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.3s ease;
+}
+
+#scroll-to-top:hover {
+  transform: scale(1.08) translateY(-3px);
+  background-color: #1C1C2E;
+  color: white;
+  box-shadow: 0 10px 20px rgba(28, 28, 46, 0.25);
+}
+
+/* Floating custom animations utilities manually triggered on badges */
+.animate-float {
+  animation: var(--animate-float);
+}
+
+.animate-float-delayed {
+  animation: var(--animate-float-delayed);
+}
+
+.animate-slide-up {
+  animation: var(--animate-slide-up);
+}
+
+.animate-fade-in {
+  animation: var(--animate-fade-in);
+}
+
+/* ==========================================================================
+   8. SPECIFIC SECTION ENHANCEMENTS FOR PREMIUM CHARCOAL DARK LOOK
+   ========================================================================== */
+
+/* Corporate/Premium Policy Dark Modded Container */
+#fees .bg-gradient-to-tr {
+  background: #1C1C2E !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  box-shadow: 0 25px 50px -12px rgba(28, 28, 46, 0.45) !important;
+}
+
+#fees .bg-gradient-to-tr h3 {
+  color: #FFFFFF !important;
+}
+
+#fees .bg-gradient-to-tr p {
+  color: #9CA3AF !important;
+}
+
+#fees .bg-gradient-to-tr .bg-white {
+  background-color: rgba(255, 255, 255, 0.04) !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+  color: #FFFFFF !important;
+}
+
+#fees .bg-gradient-to-tr .bg-white h4 {
+  color: #FFFFFF !important;
+}
+
+#fees .bg-gradient-to-tr .bg-white li span.text-slate-650 {
+  color: #D1D5DB !important;
+}
+
+#fees .bg-gradient-to-tr .bg-white li span.p-1 {
+  background-color: rgba(16, 185, 129, 0.15) !important;
+  color: #10B981 !important;
+}
+
+#fees .bg-gradient-to-tr .bg-white .border-t {
+  border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+/* Premium styling for footer class text elements */
+footer#contact {
+  background-color: #1C1C2E !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+footer#contact text-slate-405, 
+footer#contact .text-slate-405,
+footer#contact .text-slate-400 {
+  color: #9CA3AF !important;
+}
+
+footer#contact .border-white\/10 {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+/* Elegant shadow blue glow on hover for buttons */
+.shadow-blue-500\/20, 
+.shadow-blue-500\/25, 
+.shadow-blue-500\/10 {
+  box-shadow: 0 10px 20px -5px rgba(37, 99, 235, 0.25) !important;
+}
+
+/* Emergency float card glow shadow overrides */
+.shadow-lg {
+  box-shadow: 0 10px 25px -5px rgba(37, 99, 235, 0.08) !important;
+}

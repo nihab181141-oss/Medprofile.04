@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Premium responsive medical portfolio for Dr. Ahmed Rahman - Medicine & Diabetes Specialist" />
+  <title>Dr. Ahmed Rahman | Medicine & Diabetes Specialist</title>
+  
+  <!-- Tailwind CSS v4 CDN for easy customization -->
+  <link rel="stylesheet" href="./style.css" />
+  
+  <!-- Font Integrations: Inter and Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans selection:bg-blue-600 selection:text-white antialiased">
+
+  <!-- ========================================== -->
+  <!-- 0. PRELOADER / LOADING SCREEN -->
+  <!-- ========================================== -->
+  <div id="preloader" class="fixed inset-0 z-[9999] flex items-center justify-center bg-white transition-opacity duration-500">
+    <div class="relative flex flex-col items-center">
+      <!-- Heartbeat loader -->
+      <div class="relative w-20 h-20 flex items-center justify-center">
+        <div class="absolute inset-0 rounded-full border-4 border-blue-100 animate-ping"></div>
+        <div class="absolute inset-2 rounded-full border-4 border-blue-600 animate-pulse flex items-center justify-center">
+          <i data-lucide="activity" class="w-8 h-8 text-blue-600"></i>
+        </div>
+      </div>
+      <p class="mt-4 font-display font-semibold text-slate-600 tracking-wide animate-pulse">Loading Medical Portfolio...</p>
+    </div>
+  </div>
+
+  <!-- ========================================== -->
+  <!-- 1. STICKY NAVBAR -->
+  <!-- ========================================== -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-4 sm:px-6 lg:px-8 border-b border-transparent">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <!-- Logo Branding -->
+      <a href="#home" id="nav-logo" class="flex items-center gap-2 group">
+        <span class="p-2 bg-gradient-to-tr from-blue-600 to-indigo-600 text-white rounded-xl shadow-md group-hover:rotate-12 transition-transform duration-300">
+          <i data-lucide="stethoscope" class="w-6 h-6"></i>
+        </span>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-lg leading-tight tracking-tight text-slate-900 group-hover:text-blue-600 transition-colors">
+            <!-- EDITABLE: Doctor Logo Label -->
+            Dr. Ahmed Rahman
+          </span>
+          <span class="text-[10px] font-medium tracking-widest text-slate-500 uppercase leading-none">
+            Medicine & Diabetes Specialist
+          </span>
+        </div>
+      </a>
+
+      <!-- Desktop Navigation Menu -->
+      <nav class="hidden md:flex items-center gap-1 bg-white/70 backdrop-blur-md px-6 py-2 rounded-full shadow-sm border border-slate-100">
+        <a href="#home" class="nav-link active py-2 px-4 rounded-full text-sm font-semibold transition-all">Home</a>
+        <a href="#about" class="nav-link py-2 px-4 rounded-full text-sm font-semibold transition-all">About</a>
+        <a href="#chambers" class="nav-link py-2 px-4 rounded-full text-sm font-semibold transition-all">Chambers</a>
+        <a href="#fees" class="nav-link py-2 px-4 rounded-full text-sm font-semibold transition-all">Policy</a>
+        <a href="#appointment" class="nav-link py-2 px-4 rounded-full text-sm font-semibold transition-all">Appointment</a>
+        <a href="#faq" class="nav-link py-2 px-4 rounded-full text-sm font-semibold transition-all">FAQ</a>
+        <a href="#contact" class="nav-link py-2 px-4 rounded-full text-sm font-semibold transition-all">Contact</a>
+      </nav>
+
+      <!-- Desktop Book Now Button -->
+      <div class="hidden md:block">
+        <a href="#appointment" class="inline-flex items-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-semibold text-sm px-5 py-2.5 rounded-full shadow-lg shadow-blue-500/20 hover:scale-105 active:scale-95 transition-all">
+          <i data-lucide="phone-call" class="w-4 h-4"></i>
+          Book Now
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button id="mobile-menu-toggle" type="button" class="md:hidden p-2.5 rounded-xl text-slate-700 hover:bg-slate-100 focus:outline-none focus:ring-2 focus:ring-blue-600/20 transition-colors" aria-label="Toggle mobile menu">
+        <i data-lucide="menu" class="w-6 h-6" id="menu-icon"></i>
+        <i data-lucide="x" class="w-6 h-6 hidden" id="close-icon"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="fixed inset-x-4 top-20 z-50 hidden md:hidden bg-white/95 backdrop-blur-lg rounded-3xl shadow-xl border border-slate-100/80 p-6 animate-fade-in">
+      <div class="flex flex-col gap-4">
+        <a href="#home" class="mobile-nav-link active flex items-center gap-3 p-3 rounded-2xl text-slate-800 font-medium hover:bg-blue-50 hover:text-blue-600 transition-colors">
+          <i data-lucide="home" class="w-5 h-5 text-slate-400"></i> Home
+        </a>
+        <a href="#about" class="mobile-nav-link flex items-center gap-3 p-3 rounded-2xl text-slate-800 font-medium hover:bg-blue-50 hover:text-blue-600 transition-colors">
+          <i data-lucide="user" class="w-5 h-5 text-slate-400"></i> About
+        </a>
+        <a href="#chambers" class="mobile-nav-link flex items-center gap-3 p-3 rounded-2xl text-slate-800 font-medium hover:bg-blue-50 hover:text-blue-600 transition-colors">
+          <i data-lucide="square-activity" class="w-5 h-5 text-slate-400"></i> Chambers
+        </a>
+        <a href="#fees" class="mobile-nav-link flex items-center gap-3 p-3 rounded-2xl text-slate-800 font-medium hover:bg-blue-50 hover:text-blue-600 transition-colors">
+          <i data-lucide="shield-check" class="w-5 h-5 text-slate-400"></i> Policy
+        </a>
+        <a href="#appointment" class="mobile-nav-link flex items-center gap-3 p-3 rounded-2xl text-slate-800 font-medium hover:bg-blue-50 hover:text-blue-600 transition-colors">
+          <i data-lucide="calendar" class="w-5 h-5 text-slate-400"></i> Appointment
+        </a>
+        <a href="#faq" class="mobile-nav-link flex items-center gap-3 p-3 rounded-2xl text-slate-800 font-medium hover:bg-blue-50 hover:text-blue-600 transition-colors">
+          <i data-lucide="help-circle" class="w-5 h-5 text-slate-400"></i> FAQ
+        </a>
+        <a href="#contact" class="mobile-nav-link flex items-center gap-3 p-3 rounded-2xl text-slate-800 font-medium hover:bg-blue-50 hover:text-blue-600 transition-colors">
+          <i data-lucide="mail" class="w-5 h-5 text-slate-400"></i> Contact
+        </a>
+
+        <div class="h-[1px] bg-slate-100 my-1"></div>
+
+        <a href="tel:01712345678" class="flex items-center justify-center gap-3 bg-blue-600 text-white font-semibold py-3.5 px-4 rounded-2xl shadow-lg shadow-blue-500/20 hover:bg-blue-700 active:scale-95 transition-all text-center">
+          <i data-lucide="phone" class="w-5 h-5"></i> Call Assistant
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================== -->
+  <!-- 2. HERO SECTION -->
+  <!-- ========================================== -->
+  <section id="home" class="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden bg-gradient-to-b from-blue-50 via-white to-slate-50">
+    <!-- Decorated Grid Background & Bubbles -->
+    <div class="absolute inset-0 z-0 opacity-40 mix-blend-multiply pointer-events-none bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:4rem_4rem]"></div>
+    <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-blue-200/40 blur-3xl pointer-events-none"></div>
+    <div class="absolute top-2/3 -right-40 w-96 h-96 rounded-full bg-indigo-200/30 blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Hero Text Column -->
+        <div class="lg:col-span-7 flex flex-col text-center lg:text-left animate-slide-up">
+          <div class="inline-flex items-center gap-2 bg-blue-100/60 border border-blue-200 text-blue-700 font-semibold px-4 py-1.5 rounded-full text-xs uppercase tracking-wide w-fit mx-auto lg:mx-0 mb-6 shadow-sm">
+            <span class="flex h-2 w-2 relative">
+              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-400 opacity-75"></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-blue-600"></span>
+            </span>
+            Medicine & Diabetes Specialist
+          </div>
+          
+          <h1 class="font-display font-extrabold text-slate-900 tracking-tight text-4xl sm:text-5xl lg:text-6xl leading-tight">
+            Comprehensive & Personal <span class="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">Healthcare Solution</span>
+          </h1>
+          
+          <p class="mt-4 text-base sm:text-lg lg:text-xl text-slate-600 max-w-2xl mx-auto lg:mx-0 leading-relaxed font-light">
+            Providing empathetic, advanced, and expert clinical care. Dedicated to promoting lasting wellness with a patient-centric, custom treatment model.
+          </p>
+
+          <!-- Doctor Key Bio Placeholders -->
+          <div class="mt-8 flex flex-col gap-2 max-w-lg mx-auto lg:mx-0">
+            <h2 class="font-display text-2xl font-bold text-slate-800">
+              Dr. Ahmed Rahman
+            </h2>
+            <p class="text-sm font-semibold text-blue-600 font-mono tracking-wide bg-blue-50 border border-blue-100 rounded-lg px-4 py-1.5 w-fit mx-auto lg:mx-0 shadow-xs">
+              MBBS, FCPS (Medicine)
+            </p>
+            <p class="text-sm text-slate-500 font-medium mt-1">
+              <i data-lucide="shield-check" class="inline w-4 w-4 mr-1 text-teal-500 align-middle"></i>
+              Verified 12+ Years of professional medical excellence
+            </p>
+          </div>
+
+          <!-- Hero Action Buttons -->
+          <div class="mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 mx-auto lg:mx-0 w-full sm:w-auto">
+            <a href="#appointment" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-blue-600 hover:bg-blue-700 text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-blue-500/25 hover:shadow-blue-500/35 hover:-translate-y-0.5 active:translate-y-0 transition-all text-base">
+              <i data-lucide="calendar" class="w-5 h-5"></i>
+              Book Appointment
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=8801712345678&text=আসসালামু%20আলাইকুম।%20আমি%20ডক্টর%20আহমেদ%20রহমান%20এর%20অ্যাপয়েন্টমেন্ট%20বুকিং%20করতে%2520চাই।%2520রোগীর%2520নাম:%2520__________,%2520বয়স:%2520______,%2520চেম্বার:%2520__________।" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-emerald-500 hover:bg-emerald-600 text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-emerald-500/10 hover:shadow-emerald-500/20 hover:-translate-y-0.5 active:translate-y-0 transition-all text-base">
+              <span class="flex items-center justify-center bg-white/20 p-1 rounded-lg">
+                <svg class="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
+                  <path d="M20.52 3.449A11.898 11.898 0 0 0 12 0C5.45 0 .1 5.35.1 11.9A11.84 11.84 0 0 0 1.9 17.65L0 24l6.5-1.7a11.84 11.84 0 0 0 5.46 1.35c6.55 0 11.9-5.35 11.9-11.9a11.9 11.9 0 0 0-3.34-8.301zM12 21.8c-2 0-3.96-.53-5.69-1.54l-.4-.24-4.22 1.1 1.13-4.11-.27-.42a9.79 9.79 0 0 1-1.5-5.13C2.05 6.13 6.52 1.66 12 1.66c2.66 0 5.16 1.04 7.04 2.92a9.89 9.89 0 0 1 2.92 7.03c-.01 5.48-4.48 9.95-9.96 9.95zm5.46-7.46c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.77.98-.95 1.18-.18.2-.35.23-.65.08-1.02-.51-1.69-.94-2.36-2.08-.18-.31-.18-.58-.03-.73.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.68-1.64-.93-2.24-.25-.59-.5-.51-.68-.52-.17-.01-.38-.01-.58-.01s-.53.08-.81.38c-.28.3-1.06 1.04-1.06 2.53s1.08 2.93 1.23 3.13c.15.2 2.13 3.25 5.16 4.56.72.31 1.28.5 1.72.64.73.23 1.39.2 1.91.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.17-1.43-.07-.12-.27-.2-.57-.35z"/>
+                </svg>
+              </span>
+              WhatsApp Now
+            </a>
+          </div>
+
+          <!-- Trust Badges -->
+          <div class="mt-12 pt-8 border-t border-slate-100 flex flex-wrap justify-center lg:justify-start items-center gap-6 text-slate-400">
+            <span class="flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-slate-500">
+              <i data-lucide="verified" class="w-4 h-4 text-emerald-500"></i> Trust Badges
+            </span>
+            <div class="flex flex-wrap gap-4 text-slate-500 font-semibold text-xs">
+              <div class="flex items-center gap-1.5 bg-white border border-slate-100 px-3 py-1 rounded-full shadow-xs">
+                <i data-lucide="award" class="w-4 h-4 text-blue-500"></i> Board Certified
+              </div>
+              <div class="flex items-center gap-1.5 bg-white border border-slate-100 px-3 py-1 rounded-full shadow-xs">
+                <i data-lucide="building" class="w-4 h-4 text-blue-500"></i> Top Hospital Affiliate
+              </div>
+              <div class="flex items-center gap-1.5 bg-white border border-slate-100 px-3 py-1 rounded-full shadow-xs">
+                <i data-lucide="shield" class="w-4 h-4 text-blue-500"></i> 100% Secure Care
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Image Column -->
+        <div class="lg:col-span-5 relative flex items-center justify-center animate-fade-in delay-200">
+          <div class="relative w-80 h-80 sm:w-96 sm:h-96">
+            <!-- Background Decorative Rings -->
+            <div class="absolute -inset-4 rounded-[40px] bg-gradient-to-tr from-blue-600/10 to-indigo-600/10 rotate-6 pointer-events-none scale-105"></div>
+            <div class="absolute -inset-4 rounded-[40px] border border-blue-100/50 -rotate-3 pointer-events-none scale-105"></div>
+            
+            <!-- Floating Heart Rate Badge -->
+            <div class="absolute -top-4 -right-4 bg-white/90 backdrop-blur-md border border-blue-50 shadow-lg rounded-2xl p-3 flex items-center gap-3 animate-float max-w-[170px] z-20">
+              <span class="p-2.5 bg-gradient-to-tr from-rose-500 to-red-500 text-white rounded-xl shadow-md">
+                <i data-lucide="heart-pulse" class="w-5 h-5"></i>
+              </span>
+              <div>
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider leading-none">Emergency</p>
+                <p class="text-xs font-extrabold text-slate-800 leading-normal">24/7 Support Available</p>
+              </div>
+            </div>
+
+            <!-- Floating Happy Patient Badge -->
+            <div class="absolute -bottom-4 -left-6 bg-white/90 backdrop-blur-md border border-blue-50 shadow-lg rounded-2xl p-3 flex items-center gap-3 animate-float-delayed max-w-[180px] z-20">
+              <span class="p-2.5 bg-gradient-to-tr from-emerald-500 to-teal-500 text-white rounded-xl shadow-md">
+                <i data-lucide="smile" class="w-5 h-5"></i>
+              </span>
+              <div>
+                <p class="text-[10px] font-bold text-slate-400 uppercase tracking-wider leading-none">Caring Approach</p>
+                <p class="text-xs font-extrabold text-slate-800 leading-normal">Top Customer Rating</p>
+              </div>
+            </div>
+            
+            <!-- Principal Doctor Photo Canvas -->
+            <div class="w-full h-full rounded-[32px] overflow-hidden bg-gradient-to-tr from-blue-600 via-indigo-500 to-cyan-400 p-1 project-image shadow-2xl relative">
+              <img
+                src="/src/assets/images/doctor_portrait_1779595800731.png"
+                alt="Portrait of Dr. Ahmed Rahman"
+                class="w-full h-full object-cover rounded-[30px] transition-transform duration-500 hover:scale-105"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 3. ABOUT DOCTOR SECTION -->
+  <!-- ========================================== -->
+  <section id="about" class="py-20 md:py-28 bg-white section-obs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-blue-600 font-bold text-xs uppercase tracking-widest bg-blue-50 border border-blue-100 px-4 py-1.5 rounded-full shadow-xs">
+          Professional Bio
+        </span>
+        <h2 class="font-display font-bold text-slate-900 text-3xl sm:text-4xl mt-4">
+          Meet Your Dedicated Clinician
+        </h2>
+        <div class="w-12 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        <!-- Biography & Details Column -->
+        <div class="lg:col-span-7 space-y-8">
+          <div class="bg-gradient-to-r from-blue-50/50 to-indigo-50/50 rounded-2xl p-6 md:p-8 border border-blue-50/70 relative">
+            <h3 class="font-display font-bold text-xl text-slate-900 mb-4 flex items-center gap-2">
+              <i data-lucide="user" class="w-5 h-5 text-blue-600"></i> Short Biography
+            </h3>
+            <p class="text-slate-600 leading-relaxed font-light text-base">
+              Dr. Ahmed Rahman is an experienced Medicine and Diabetes Specialist with over 12 years of clinical experience. Dedicated to patient-centered treatment, accurate diagnosis, and modern healthcare solutions.
+            </p>
+            <p class="mt-4 text-slate-600 leading-relaxed font-light text-base">
+              Focusing on dynamic diagnostic systems and collaborative patient plans, each diagnosis leverages empirical evidence and state-of-the-art procedures to secure optimal outcomes.
+            </p>
+          </div>
+
+          <!-- Affiliation / Association Badge -->
+          <div class="bg-slate-50 rounded-2xl p-6 border border-slate-100">
+            <h3 class="font-display font-semibold text-slate-800 text-base uppercase tracking-wider mb-4 flex items-center gap-2">
+              <i data-lucide="building-2" class="w-4 h-4 text-slate-500"></i> Medical Association Affiliation
+            </h3>
+            <div class="flex items-start gap-4">
+              <span class="p-3 bg-white rounded-xl shadow-xs border border-slate-100 text-blue-600">
+                <i data-lucide="crown" class="w-6 h-6"></i>
+              </span>
+              <div>
+                <h4 class="font-bold text-slate-800 text-sm">Affiliated Senior Consultant</h4>
+                <p class="text-xs text-slate-600 font-light mt-1">Consultant at Popular Diagnostic Center. Dedicated member of the medicine and diabetes care community, delivering high-quality healthcare.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Academic & Experience Column -->
+        <div class="lg:col-span-5 space-y-6">
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-xl shadow-slate-100 border border-slate-100 relative">
+            <h3 class="font-display font-bold text-lg text-slate-900 mb-6 flex items-center gap-2 pb-4 border-b border-slate-100">
+              <i data-lucide="graduation-cap" class="w-5 h-5 text-indigo-600"></i> Degrees & Education
+            </h3>
+            <ul class="space-y-4">
+              <li class="flex items-start gap-3">
+                <span class="mt-1 text-slate-400">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-blue-500"></i>
+                </span>
+                <div>
+                  <p class="font-bold text-slate-800 text-sm">MBBS</p>
+                  <p class="text-xs text-slate-500 font-medium">Dhaka Medical College</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 text-slate-400">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-blue-500"></i>
+                </span>
+                <div>
+                  <p class="font-bold text-slate-800 text-sm">FCPS (Medicine)</p>
+                  <p class="text-xs text-slate-500 font-medium font-display">Bangladesh College of Physicians and Surgeons (BCPS)</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="mt-1 text-slate-400">
+                  <i data-lucide="check-circle" class="w-4 h-4 text-blue-500"></i>
+                </span>
+                <div>
+                  <p class="font-bold text-slate-800 text-sm">Advanced Training in Diabetes Care</p>
+                  <p class="text-xs text-slate-500 font-medium">Specialized diabetes management & clinical therapies</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <div class="bg-white rounded-2xl p-6 md:p-8 shadow-xl shadow-slate-100 border border-slate-100 relative">
+            <h3 class="font-display font-bold text-lg text-slate-900 mb-6 flex items-center gap-2 pb-4 border-b border-slate-100">
+              <i data-lucide="briefcase" class="w-5 h-5 text-emerald-600"></i> Clinical Expertise
+            </h3>
+            <div class="flex flex-wrap gap-2">
+              <span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-lg border border-emerald-100">Preventive Care</span>
+              <span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-lg border border-emerald-100">Complex Diagnostics</span>
+              <span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-lg border border-emerald-100">System Therapy</span>
+              <span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-lg border border-emerald-100">Lifestyle Medicine</span>
+              <span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-lg border border-emerald-100">Rehabilitation Care</span>
+              <span class="bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1.5 rounded-lg border border-emerald-100">Chronic Care</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 4. CHAMBER SECTION -->
+  <!-- ========================================== -->
+  <section id="chambers" class="py-20 md:py-28 bg-slate-50 section-obs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-blue-600 font-bold text-xs uppercase tracking-widest bg-blue-50 border border-blue-100 px-4 py-1.5 rounded-full shadow-xs">
+          Visit Locations
+        </span>
+        <h2 class="font-display font-bold text-slate-900 text-3xl sm:text-4xl mt-4">
+          Checkups & Chambers
+        </h2>
+        <p class="text-slate-500 font-light mt-2">Choose your preferred location and secure a convenient clinical appointment</p>
+        <div class="w-12 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <!-- Multiple Chambers Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        
+        <!-- Chamber 1 Card -->
+        <article class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-xl shadow-slate-100/50 hover:shadow-2xl transition-all duration-300 relative overflow-hidden group">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-blue-50 rounded-bl-[100px] -z-0 group-hover:bg-blue-100/60 transition-colors"></div>
+          
+          <div class="relative z-10 flex flex-col h-full justify-between">
+            <div>
+              <span class="inline-flex items-center gap-1.5 bg-blue-50 text-blue-700 text-xs font-bold px-3 py-1 rounded-full mb-6">
+                <i data-lucide="building" class="w-3.5 h-3.5"></i> Primary Chamber
+              </span>
+              
+              <h3 class="font-display font-bold text-slate-900 text-xl md:text-2xl mb-3">
+                Popular Diagnostic Center
+              </h3>
+              
+              <p class="text-slate-500 font-light text-sm mb-6 flex items-start gap-2">
+                <i data-lucide="map-pin" class="w-5 h-5 text-slate-400 shrink-0 mt-0.5"></i>
+                Laxmipur, Rajshahi
+              </p>
+
+              <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100 space-y-3 mb-6">
+                <div class="flex items-center justify-between text-xs sm:text-sm">
+                  <span class="text-slate-500 font-medium flex items-center gap-1.5">
+                    <i data-lucide="calendar" class="w-4 h-4 text-slate-400"></i> Days:
+                  </span>
+                  <span class="font-bold text-slate-800">Saturday – Monday</span>
+                </div>
+                <div class="flex items-center justify-between text-xs sm:text-sm">
+                  <span class="text-slate-500 font-medium flex items-center gap-1.5">
+                    <i data-lucide="clock" class="w-4 h-4 text-slate-400"></i> Hours:
+                  </span>
+                  <span class="font-bold text-slate-800">5:00 PM – 9:00 PM</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t border-slate-100 items-stretch sm:items-center">
+              <a href="tel:01712345678" class="flex-1 inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-4 py-3 rounded-xl text-sm transition-all">
+                <i data-lucide="phone-call" class="w-4 h-4"></i>
+                Call Assistant
+              </a>
+              <a href="https://maps.google.com/?q=Popular+Diagnostic+Center+Laxmipur+Rajshahi" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-3 rounded-xl text-sm shadow-md shadow-blue-500/10 transition-all">
+                <i data-lucide="map" class="w-4 h-4"></i>
+                Navigate Maps
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Chamber 2 Card -->
+        <article class="bg-white rounded-3xl p-6 sm:p-8 border border-slate-100 shadow-xl shadow-slate-100/50 hover:shadow-2xl transition-all duration-300 relative overflow-hidden group">
+          <div class="absolute top-0 right-0 w-24 h-24 bg-teal-50 rounded-bl-[100px] -z-0 group-hover:bg-teal-100/60 transition-colors"></div>
+          
+          <div class="relative z-10 flex flex-col h-full justify-between">
+            <div>
+              <span class="inline-flex items-center gap-1.5 bg-teal-50 text-teal-700 text-xs font-bold px-3 py-1 rounded-full mb-6">
+                <i data-lucide="building" class="w-3.5 h-3.5"></i> Secondary Chamber
+              </span>
+              
+              <h3 class="font-display font-bold text-slate-900 text-xl md:text-2xl mb-3">
+                City Health Care
+              </h3>
+              
+              <p class="text-slate-500 font-light text-sm mb-6 flex items-start gap-2">
+                <i data-lucide="map-pin" class="w-5 h-5 text-slate-400 shrink-0 mt-0.5"></i>
+                Shaheb Bazar, Rajshahi
+              </p>
+
+              <div class="p-4 bg-slate-50 rounded-2xl border border-slate-100 space-y-3 mb-6">
+                <div class="flex items-center justify-between text-xs sm:text-sm">
+                  <span class="text-slate-500 font-medium flex items-center gap-1.5">
+                    <i data-lucide="calendar" class="w-4 h-4 text-slate-400"></i> Days:
+                  </span>
+                  <span class="font-bold text-slate-800">Tuesday – Thursday</span>
+                </div>
+                <div class="flex items-center justify-between text-xs sm:text-sm">
+                  <span class="text-slate-500 font-medium flex items-center gap-1.5">
+                    <i data-lucide="clock" class="w-4 h-4 text-slate-400"></i> Hours:
+                  </span>
+                  <span class="font-bold text-slate-800">4:00 PM – 7:00 PM</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flex flex-col sm:flex-row gap-3 pt-4 border-t border-slate-100 items-stretch sm:items-center">
+              <a href="tel:01898765432" class="flex-1 inline-flex items-center justify-center gap-2 bg-slate-100 hover:bg-slate-200 text-slate-800 font-bold px-4 py-3 rounded-xl text-sm transition-all">
+                <i data-lucide="phone-call" class="w-4 h-4"></i>
+                Call Assistant
+              </a>
+              <a href="https://maps.google.com/?q=City+Health+Care+Shaheb+Bazar+Rajshahi" target="_blank" rel="noopener noreferrer" class="flex-1 inline-flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold px-4 py-3 rounded-xl text-sm shadow-md shadow-emerald-500/10 transition-all">
+                <i data-lucide="map" class="w-4 h-4"></i>
+                Navigate Maps
+              </a>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 5. VISITING PROCESS & POLICY TRUST SECTION -->
+  <!-- ========================================== -->
+  <section id="fees" class="py-20 md:py-28 bg-white section-obs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-blue-600 font-bold text-xs uppercase tracking-widest bg-blue-50 border border-blue-100 px-4 py-1.5 rounded-full shadow-xs">
+          Direct Booking Policy
+        </span>
+        <h2 class="font-display font-bold text-slate-900 text-3xl sm:text-4xl mt-4">
+          Personalized Consultations & Secure Visits
+        </h2>
+        <div class="w-12 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <div class="max-w-5xl mx-auto">
+        <div class="bg-gradient-to-tr from-blue-50 via-white to-slate-50 border border-blue-100 rounded-[32px] p-8 md:p-12 shadow-xl shadow-blue-500/5 relative overflow-hidden animate-fade-in">
+          <div class="absolute top-0 right-0 w-32 h-32 bg-blue-100/30 rounded-bl-[128px] pointer-events-none"></div>
+          
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10">
+            <div>
+              <span class="inline-flex items-center gap-1.5 bg-blue-100 text-blue-800 text-xs font-extrabold px-3.5 py-1.5 rounded-full mb-6">
+                <i data-lucide="shield-check" class="w-4 h-4 text-blue-600 animate-pulse"></i> Patient Trust Guarantee
+              </span>
+              <h3 class="font-display font-extrabold text-slate-900 text-2xl mb-4">
+                No Online Payments / Transparent Visits
+              </h3>
+              <p class="text-slate-600 leading-relaxed font-light mb-6">
+                আপনার সুবিধার জন্য আমরা কোনো অগ্রিম ফি বা অনলাইন পেমেন্ট নেই না। চেম্বার সহকারী বা সরাসরি ফোনে বুকিং করলেই সিরিয়াল নিশ্চিত হবে।
+              </p>
+              <p class="text-slate-600 leading-relaxed font-light">
+                Our care template models run strictly on appointment-based physical visits. Pay directly at the clinical desk during check-in. This preserves 100% patient authenticity and direct local assistance.
+              </p>
+            </div>
+            
+            <div class="space-y-4 bg-white p-6 md:p-8 rounded-2xl border border-slate-100 shadow-md">
+              <h4 class="font-display font-bold text-slate-800 text-lg mb-2 flex items-center gap-2">
+                <i data-lucide="info" class="w-5 h-5 text-indigo-650"></i> রোগী দেখার সাধারণ নিয়মাবলী
+              </h4>
+              <ul class="space-y-3.5">
+                <li class="flex items-start gap-3">
+                  <span class="p-1 bg-emerald-50 text-emerald-600 rounded-lg mt-0.5 shrink-0">
+                    <i data-lucide="check" class="w-4 h-4"></i>
+                  </span>
+                  <span class="text-xs sm:text-sm text-slate-650 font-light font-sans leading-relaxed">১. সরাসরি সহকারীকে ফোন করে নাম টিকিট বা টোকেন নম্বর সংগ্রহ করুন।</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="p-1 bg-emerald-50 text-emerald-600 rounded-lg mt-0.5 shrink-0">
+                    <i data-lucide="check" class="w-4 h-4"></i>
+                  </span>
+                  <span class="text-xs sm:text-sm text-slate-650 font-light font-sans leading-relaxed">২. পূর্ববর্তী সকল প্রেসক্রিপশন এবং পরীক্ষার রিপোর্ট সাথে নিয়ে আসুন।</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span class="p-1 bg-emerald-50 text-emerald-600 rounded-lg mt-0.5 shrink-0">
+                    <i data-lucide="check" class="w-4 h-4"></i>
+                  </span>
+                  <span class="text-xs sm:text-sm text-slate-650 font-light font-sans leading-relaxed">৩. চেম্বারে প্রবেশের ন্যূনতম ৩০ মিনিট পূর্বে রিপোর্ট টেবিলে রিপোর্ট জমা দিন।</span>
+                </li>
+              </ul>
+              <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+                <a href="#appointment" class="inline-flex items-center gap-1.5 text-blue-600 font-bold text-xs hover:text-indigo-600 transition-colors uppercase tracking-wider">
+                  চেম্বারে সিরিয়াল নিন <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+                <span class="text-[10px] text-slate-400 font-semibold uppercase font-mono">100% Free Booking</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 6. APPOINTMENT SECTION -->
+  <!-- ========================================== -->
+  <section id="appointment" class="py-20 md:py-28 bg-blue-50/50 section-obs relative overflow-hidden">
+    <!-- Circle decorations -->
+    <div class="absolute -top-32 -left-32 w-80 h-80 bg-blue-200/20 rounded-full blur-2xl"></div>
+    <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-indigo-200/20 rounded-full blur-2xl"></div>
+
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 relative z-10 text-center">
+      
+      <!-- Upper Emblem -->
+      <div class="bg-blue-600 text-white rounded-2xl w-14 h-14 flex items-center justify-center mx-auto shadow-lg shadow-blue-500/25 mb-6">
+        <i data-lucide="calendar-plus" class="w-7 h-7"></i>
+      </div>
+
+      <h2 class="font-display font-extrabold text-slate-900 tracking-tight text-3xl sm:text-4xl">
+        Book Your Session Instantly
+      </h2>
+      <p class="mt-4 text-base sm:text-lg text-slate-600 max-w-xl mx-auto font-light">
+        Have healthcare inquiries or diagnostic requirements? Reach out directly via phone calling or mobile WhatsApp.
+      </p>
+
+      <!-- Central Phone Info -->
+      <div class="mt-8 p-6 sm:p-10 bg-white rounded-[32px] border border-slate-100 shadow-2xl shadow-blue-100 max-w-2xl mx-auto">
+        <p class="text-xs uppercase font-extrabold tracking-widest text-slate-400 mb-2">Speak to Chamber Assistant</p>
+        <a href="tel:01712345678" class="text-2xl sm:text-3xl lg:text-4xl font-display font-black text-blue-600 hover:text-indigo-600 transition-colors tracking-tight font-mono inline-block">
+          01712-345678
+        </a>
+        <p class="text-xs text-slate-500 mt-2 font-medium">Reception hours: 9:00 AM - 9:00 PM</p>
+
+        <div class="mt-8 flex flex-col sm:flex-row gap-4 items-center justify-center">
+          <a href="tel:01712345678" class="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-blue-600 hover:bg-blue-700 text-white font-extrabold px-8 py-4 rounded-2xl shadow-xl shadow-blue-500/10 transition-all text-base border border-blue-650 hover:scale-105">
+            <i data-lucide="phone-call" class="w-5 h-5"></i>
+            Call Assistant Now
+          </a>
+          <a href="https://api.whatsapp.com/send?phone=8801712345678&text=আসসালামু%20আলাইকুম।%20আমি%20ডক্টর%20আহমেদ%20রহমান%20এর%20অ্যাপয়েন্টমেন্ট%20বুকিং%20করতে%2520চাই।%2520রোগীর%2520নাম:%2520__________,%2520বয়স:%2520______,%2520চেম্বার:%2520__________।" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto flex items-center justify-center gap-2.5 bg-emerald-500 hover:bg-emerald-600 text-white font-extrabold px-8 py-4 rounded-2xl shadow-xl shadow-emerald-500/10 transition-all text-base hover:scale-105">
+            <span class="flex items-center justify-center bg-white/20 p-1 rounded-lg">
+              <svg class="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
+                <path d="M20.52 3.449A11.898 11.898 0 0 0 12 0C5.45 0 .1 5.35.1 11.9A11.84 11.84 0 0 0 1.9 17.65L0 24l6.5-1.7a11.84 11.84 0 0 0 5.46 1.35c6.55 0 11.9-5.35 11.9-11.9a11.9 11.9 0 0 0-3.34-8.301zM12 21.8c-2 0-3.96-.53-5.69-1.54l-.4-.24-4.22 1.1 1.13-4.11-.27-.42a9.79 9.79 0 0 1-1.5-5.13C2.05 6.13 6.52 1.66 12 1.66c2.66 0 5.16 1.04 7.04 2.92a9.89 9.89 0 0 1 2.92 7.03c-.01 5.48-4.48 9.95-9.96 9.95zm5.46-7.46c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.77.98-.95 1.18-.18.2-.35.23-.65.08-1.02-.51-1.69-.94-2.36-2.08-.18-.31-.18-.58-.03-.73.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.68-1.64-.93-2.24-.25-.59-.5-.51-.68-.52-.17-.01-.38-.01-.58-.01s-.53.08-.81.38c-.28.3-1.06 1.04-1.06 2.53s1.08 2.93 1.23 3.13c.15.2 2.13 3.25 5.16 4.56.72.31 1.28.5 1.72.64.73.23 1.39.2 1.91.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.17-1.43-.07-.12-.27-.2-.57-.35z"/>
+              </svg>
+            </span>
+            WhatsApp Appointment
+          </a>
+        </div>
+      </div>
+
+      <!-- Quick Instructions -->
+      <div class="mt-8 max-w-md mx-auto text-left bg-blue-100/40 p-5 rounded-2xl border border-blue-200/50">
+        <h4 class="font-bold text-xs text-blue-800 uppercase tracking-wider mb-2 flex items-center gap-1.5 leading-none">
+          <i data-lucide="info" class="w-4 h-4"></i> Booking Instructions
+        </h4>
+        <ol class="list-decimal list-inside text-xs text-slate-650 space-y-1 ml-1 leading-relaxed font-light">
+          <li>Call or WhatsApp our assistant with your name, age, and location.</li>
+          <li>Choose your preferred chamber name and visit slot.</li>
+          <li>Receive your confirmation slip/token number on your mobile.</li>
+        </ol>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 7. WHY CHOOSE THIS DOCTOR SECTION -->
+  <!-- ========================================== -->
+  <section class="py-20 md:py-28 bg-white section-obs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-indigo-600 font-bold text-xs uppercase tracking-widest bg-indigo-50 border border-indigo-100 px-4 py-1.5 rounded-full shadow-xs">
+          Our Specialities
+        </span>
+        <h2 class="font-display font-bold text-slate-900 text-3xl sm:text-4xl mt-4">
+          Why Choose Dr. Ahmed Rahman?
+        </h2>
+        <div class="w-12 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <!-- Feature Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Feature 1 -->
+        <div class="p-6 md:p-8 bg-slate-50 hover:bg-blue-50/50 rounded-3xl border border-slate-100 transition-all group hover:-translate-y-1 shadow-sm">
+          <span class="p-4 bg-white text-blue-600 rounded-2xl shadow-sm inline-flex items-center justify-center mb-6 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-305">
+            <i data-lucide="heart" class="w-6 h-6"></i>
+          </span>
+          <h3 class="font-display font-extrabold text-slate-800 text-lg mb-2">Experienced Care</h3>
+          <p class="text-sm text-slate-500 font-light leading-relaxed">
+            Over 12+ Years of successful diagnostics and complex symptom solutions in clinical healthcare.
+          </p>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="p-6 md:p-8 bg-slate-50 hover:bg-blue-50/50 rounded-3xl border border-slate-100 transition-all group hover:-translate-y-1 shadow-sm">
+          <span class="p-4 bg-white text-blue-600 rounded-2xl shadow-sm inline-flex items-center justify-center mb-6 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-305">
+            <i data-lucide="shield-check" class="w-6 h-6"></i>
+          </span>
+          <h3 class="font-display font-extrabold text-slate-800 text-lg mb-2">Trusted Treatment</h3>
+          <p class="text-sm text-slate-500 font-light leading-relaxed">
+            Patient safety-first therapy standard with 100% adherence to boards and medical ethics guidelines.
+          </p>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="p-6 md:p-8 bg-slate-50 hover:bg-blue-50/50 rounded-3xl border border-slate-100 transition-all group hover:-translate-y-1 shadow-sm">
+          <span class="p-4 bg-white text-blue-600 rounded-2xl shadow-sm inline-flex items-center justify-center mb-6 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-305">
+            <i data-lucide="search" class="w-6 h-6"></i>
+          </span>
+          <h3 class="font-display font-extrabold text-slate-800 text-lg mb-2">Accurate Diagnosis</h3>
+          <p class="text-sm text-slate-500 font-light leading-relaxed">
+            Empowering rapid recoveries using empirical methodologies, molecular checking, and clinical rigor.
+          </p>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="p-6 md:p-8 bg-slate-50 hover:bg-blue-50/50 rounded-3xl border border-slate-100 transition-all group hover:-translate-y-1 shadow-sm">
+          <span class="p-4 bg-white text-blue-600 rounded-2xl shadow-sm inline-flex items-center justify-center mb-6 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-305">
+            <i data-lucide="users" class="w-6 h-6"></i>
+          </span>
+          <h3 class="font-display font-extrabold text-slate-800 text-lg mb-2">Friendly Service</h3>
+          <p class="text-sm text-slate-500 font-light leading-relaxed">
+            Empathy-driven consultations with thorough symptom hearing, dynamic answers, and soft care.
+          </p>
+        </div>
+
+        <!-- Feature 5 -->
+        <div class="p-6 md:p-8 bg-slate-50 hover:bg-blue-50/50 rounded-3xl border border-slate-100 transition-all group hover:-translate-y-1 shadow-sm">
+          <span class="p-4 bg-white text-blue-600 rounded-2xl shadow-sm inline-flex items-center justify-center mb-6 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-305">
+            <i data-lucide="phone-call" class="w-6 h-6"></i>
+          </span>
+          <h3 class="font-display font-extrabold text-slate-800 text-lg mb-2">Emergency Support</h3>
+          <p class="text-sm text-slate-500 font-light leading-relaxed">
+            Round-the-clock reception and coordinated referral service for life-threatening or intensive situations.
+          </p>
+        </div>
+
+        <!-- Feature 6 -->
+        <div class="p-6 md:p-8 bg-slate-50 hover:bg-blue-50/50 rounded-3xl border border-slate-100 transition-all group hover:-translate-y-1 shadow-sm">
+          <span class="p-4 bg-white text-blue-600 rounded-2xl shadow-sm inline-flex items-center justify-center mb-6 group-hover:scale-110 group-hover:-rotate-3 transition-all duration-305">
+            <i data-lucide="microscope" class="w-6 h-6"></i>
+          </span>
+          <h3 class="font-display font-extrabold text-slate-800 text-lg mb-2">Modern Healthcare</h3>
+          <p class="text-sm text-slate-500 font-light leading-relaxed">
+            Leveraging modern technological systems, laboratory tracking, and electronic prescriptions databases.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 8. FAQ SECTION -->
+  <!-- ========================================== -->
+  <section id="faq" class="py-20 md:py-28 bg-slate-50 section-obs">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-blue-600 font-bold text-xs uppercase tracking-widest bg-blue-50 border border-blue-100 px-4 py-1.5 rounded-full shadow-xs">
+          Got Questions?
+        </span>
+        <h2 class="font-display font-bold text-slate-900 text-3xl sm:text-4xl mt-4">
+          Frequently Answered Inquiries
+        </h2>
+        <div class="w-12 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <!-- FAQ Container -->
+      <div class="space-y-4">
+        
+        <!-- Accordion 1 -->
+        <div class="faq-item bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm transition-all">
+          <button type="button" class="faq-button w-full flex items-center justify-between text-left p-6 font-display font-bold text-slate-800 hover:text-blue-600 transition-colors focus:outline-none">
+            <span>How can I book an appointment with Dr. Ahmed Rahman?</span>
+            <span class="faq-icon p-1 bg-slate-50 rounded-xl text-slate-400 group-hover:text-blue-600">
+              <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-350"></i>
+            </span>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-350 ease-in-out">
+            <div class="p-6 pt-0 border-t border-slate-50 text-sm text-slate-600 leading-relaxed font-light">
+              Answer: You can book an appointment easily by dialing our designated chamber assistant phone line: <a href="tel:01712345678" class="text-blue-600 font-bold font-mono">01712-345678</a> or tapping the WhatsApp button to text us your name, age, preferred location, and time slot. Our reception handles bookable requests daily from 9:00 AM to 9:00 PM.
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion 2 -->
+        <div class="faq-item bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm transition-all">
+          <button type="button" class="faq-button w-full flex items-center justify-between text-left p-6 font-display font-bold text-slate-800 hover:text-blue-600 transition-colors focus:outline-none">
+            <span>What are the visit policies and do I need to pay online?</span>
+            <span class="faq-icon p-1 bg-slate-50 rounded-xl text-slate-400 group-hover:text-blue-600">
+              <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-350"></i>
+            </span>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-350 ease-in-out">
+            <div class="p-6 pt-0 border-t border-slate-50 text-sm text-slate-600 leading-relaxed font-light">
+              Answer: We guarantee 100% transparent offline check-ins. You do NOT have to pay any advance online booking fee or credit card fees. All visit schedules are secured securely via our helper assistant over phone call or WhatsApp, and registration token processing is handled at the clinic reception.
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion 3 -->
+        <div class="faq-item bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm transition-all">
+          <button type="button" class="faq-button w-full flex items-center justify-between text-left p-6 font-display font-bold text-slate-800 hover:text-blue-600 transition-colors focus:outline-none">
+            <span>Can I reschedule my appointment slot?</span>
+            <span class="faq-icon p-1 bg-slate-50 rounded-xl text-slate-400 group-hover:text-blue-600">
+              <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-350"></i>
+            </span>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-350 ease-in-out">
+            <div class="p-6 pt-0 border-t border-slate-50 text-sm text-slate-600 leading-relaxed font-light">
+              Answer: Yes. If you wish to postpone or cancel your session, please notify our assistant phone at least 4 hours before your assigned scheduling block. This permits us to accommodate other patients who require critical medical consulting.
+            </div>
+          </div>
+        </div>
+
+        <!-- Accordion 4 -->
+        <div class="faq-item bg-white border border-slate-100 rounded-2xl overflow-hidden shadow-sm transition-all">
+          <button type="button" class="faq-button w-full flex items-center justify-between text-left p-6 font-display font-bold text-slate-800 hover:text-blue-600 transition-colors focus:outline-none">
+            <span>Does the doctor handle high-risk surgical cases?</span>
+            <span class="faq-icon p-1 bg-slate-50 rounded-xl text-slate-400 group-hover:text-blue-600">
+              <i data-lucide="chevron-down" class="w-5 h-5 transition-transform duration-350"></i>
+            </span>
+          </button>
+          <div class="faq-content max-h-0 overflow-hidden transition-all duration-350 ease-in-out">
+            <div class="p-6 pt-0 border-t border-slate-50 text-sm text-slate-600 leading-relaxed font-light">
+              Answer: Dr. Ahmed Rahman specializes in standard diagnosis, medication pathways, and outpatient therapies. For emergency operations or major high-risk surgeries, Dr. Ahmed Rahman provides board-partnered hospital referrals to chief clinical surgical teams.
+            </div>
+                  <!-- Testimonial 1 -->
+        <article class="p-6 sm:p-8 bg-slate-50 rounded-3xl border border-slate-100 flex flex-col justify-between relative group">
+          <span class="absolute top-6 right-6 text-slate-200 text-6xl leading-none font-serif select-none group-hover:text-blue-100/60 pointer-events-none transition-colors">“</span>
+          <div>
+            <!-- Five Stars -->
+            <div class="flex gap-1 text-amber-400 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-slate-600 font-light text-sm italic leading-relaxed mb-6">
+              "Excellent doctor and very friendly behavior. Dr. Ahmed Rahman explained my diabetes management steps clearly on WhatsApp. Highly recommended."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 border-t border-slate-200/50 pt-4">
+            <div class="w-10 h-10 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-xs">SH</div>
+            <div>
+              <h4 class="font-bold text-slate-800 text-xs">Sajid Hasan</h4>
+              <p class="text-[10px] text-slate-400 font-semibold font-mono uppercase">Diabetes Patient</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Testimonial 2 -->
+        <article class="p-6 sm:p-8 bg-slate-50 rounded-3xl border border-slate-100 flex flex-col justify-between relative group">
+          <span class="absolute top-6 right-6 text-slate-200 text-6xl leading-none font-serif select-none group-hover:text-blue-100/60 pointer-events-none transition-colors">“</span>
+          <div>
+            <!-- Five Stars -->
+            <div class="flex gap-1 text-amber-400 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-slate-600 font-light text-sm italic leading-relaxed mb-6">
+              "The treatment process was extremely smooth and professional. Dr. Ahmed Rahman took the extra time to explain all diagnostic reports, which gave me monumental reassurance."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 border-t border-slate-200/50 pt-4">
+            <div class="w-10 h-10 rounded-full bg-indigo-100 text-indigo-700 flex items-center justify-center font-bold text-xs">AR</div>
+            <div>
+              <h4 class="font-bold text-slate-800 text-xs">Anisur Rahman</h4>
+              <p class="text-[10px] text-slate-400 font-semibold font-mono uppercase">General Medicine Outpatient</p>
+            </div>
+          </div>
+        </article>
+
+        <!-- Testimonial 3 -->
+        <article class="p-6 sm:p-8 bg-slate-50 rounded-3xl border border-slate-100 flex flex-col justify-between relative group">
+          <span class="absolute top-6 right-6 text-slate-200 text-6xl leading-none font-serif select-none group-hover:text-blue-100/60 pointer-events-none transition-colors">“</span>
+          <div>
+            <!-- Five Stars -->
+            <div class="flex gap-1 text-amber-450 mb-4">
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+              <i data-lucide="star" class="w-4 h-4 fill-current"></i>
+            </div>
+            <p class="text-slate-600 font-light text-sm italic leading-relaxed mb-6">
+              "Very caring and experienced doctor. Both chambers are premium and sterile. I booked my father's appointment via phone, and the assistant was extremely helpful and polite."
+            </p>
+          </div>
+          <div class="flex items-center gap-3 border-t border-slate-200/50 pt-4">
+            <div class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-700 flex items-center justify-center font-bold text-xs">LB</div>
+            <div>
+              <h4 class="font-bold text-slate-800 text-xs">Laila Begum</h4>
+              <p class="text-[10px] text-slate-400 font-semibold font-mono uppercase">Senior Patient Guardian</p>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 10. GOOGLE MAP SECTION -->
+  <!-- ========================================== -->
+  <section class="py-20 md:py-28 bg-slate-50 section-obs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Section Header -->
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-blue-600 font-bold text-xs uppercase tracking-widest bg-blue-50 border border-blue-100 px-4 py-1.5 rounded-full shadow-xs">
+          Interactive Map
+        </span>
+        <h2 class="font-display font-bold text-slate-900 text-3xl sm:text-4xl mt-4">
+          Navigate Doctor's Main Chambers
+        </h2>
+        <div class="w-12 h-1 bg-gradient-to-r from-blue-600 to-indigo-600 mx-auto mt-4 rounded-full"></div>
+      </div>
+
+      <!-- Responsive Google Maps Placeholder Card -->
+      <div class="bg-white rounded-3xl p-4 shadow-xl border border-slate-100 max-w-5xl mx-auto overflow-hidden">
+        <div class="relative w-full h-[350px] sm:h-[450px] rounded-2xl overflow-hidden bg-slate-100">
+          
+          <!-- Mock Interactive Map UI if real link isn't configured, otherwise loads a standard safe map embed -->
+          <!-- We supply an elegant design with an option to open the google map link from config -->
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3651.9024424354!2d90.39108011500021!3d23.750805194689235!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8beb292b3c1%3A0xc31c6d328905b6a7!2sBangabandhu%20Sheikh%20Mujib%20Medical%20University!5e0!3m2!1sen!2sbd!4v1620000000000!5m2!1sen!2sbd" 
+            class="absolute inset-0 w-full h-full border-0" 
+            allowfullscreen="" 
+            loading="lazy" 
+            title="Hospital Map Location"
+            referrerPolicy="no-referrer">
+          </iframe>
+
+          <!-- Chamber Address overlay card on desktops -->
+          <div class="hidden sm:block absolute bottom-6 left-6 max-w-sm bg-white/95 backdrop-blur-md border border-slate-100 p-5 rounded-2xl shadow-xl z-20">
+            <h4 class="font-display font-bold text-slate-800 text-sm flex items-center gap-1.5">
+              <i data-lucide="building" class="w-4.5 h-4.5 text-blue-600"></i> Dr. Ahmed Rahman Headquarters
+            </h4>
+            <p class="text-xs text-slate-650 mt-2 font-light">
+              Laxmipur, Rajshahi, Bangladesh (Opposite side of DMC Alumni Office / Diagnostics Road)
+            </p>
+            <div class="mt-4 flex items-center gap-3">
+              <a href="https://maps.google.com/?q=Popular+Diagnostic+Center+Laxmipur+Rajshahi" target="_blank" rel="noopener" class="inline-flex items-center gap-1 text-[11px] font-bold text-white bg-blue-600 hover:bg-blue-700 py-1.5 px-3 rounded-lg shadow-sm transition-colors">
+                <i data-lucide="external-link" class="w-3.5 h-3.5"></i> Open in Maps
+              </a>
+              <span class="text-[10px] text-slate-400 font-semibold uppercase font-mono">ID: POPULAR_DIAG_RAJ</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ========================================== -->
+  <!-- 11. FOOTER -->
+  <!-- ========================================== -->
+  <footer id="contact" class="bg-slate-900 text-slate-100 relative overflow-hidden pt-16 pb-8">
+    <div class="absolute -top-24 -left-20 w-48 h-48 rounded-full bg-blue-500/10 blur-2xl"></div>
+    <div class="absolute top-2/3 -right-20 w-48 h-48 rounded-full bg-indigo-500/10 blur-2xl"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-16 pb-12 border-b border-white/10">
+        
+        <!-- Col 1: Bio -->
+        <div class="lg:col-span-4 flex flex-col gap-4">
+          <a href="#home" class="flex items-center gap-2 w-fit">
+            <span class="p-2 bg-blue-600 text-white rounded-xl shadow-lg shadow-blue-500/20">
+              <i data-lucide="stethoscope" class="w-5 h-5"></i>
+            </span>
+            <span class="font-display font-bold text-lg tracking-tight text-white">
+              Dr. Ahmed Rahman
+            </span>
+          </a>
+          <p class="text-xs text-slate-405 leading-relaxed font-light mt-1">
+            Reutilizing certified board expertise, high diagnostic integrity, and patient wellness platforms to drive recoveries. Your health security is our principal agenda.
+          </p>
+          <!-- Social Icons -->
+          <div class="flex items-center gap-3 mt-4">
+            <a href="https://facebook.com/dr.ahmedrahman" target="_blank" rel="noopener noreferrer" class="p-2 rounded-xl bg-white/5 hover:bg-blue-600 text-slate-300 hover:text-white hover:scale-105 transition-all text-sm" aria-label="Facebook">
+              <i data-lucide="facebook" class="w-4 h-4"></i>
+            </a>
+            <a href="https://instagram.com/dr.ahmedrahman" target="_blank" rel="noopener noreferrer" class="p-2 rounded-xl bg-white/5 hover:bg-blue-600 text-slate-300 hover:text-white hover:scale-105 transition-all text-sm" aria-label="Instagram">
+              <i data-lucide="instagram" class="w-4 h-4"></i>
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=8801712345678&text=আসসালামু%20আলাইকুম।%20আমি%20ডক্টর%20আহমেদ%20রহমান%20এর%20অ্যাপয়েন্টমেন্ট%20বুকিং%20করতে%20চাই।%20রোগীর%2520নাম:%20__________,%2520বয়স:%20______,%2520চেম্বার:%20__________।" target="_blank" rel="noopener" class="p-2 rounded-xl bg-white/5 hover:bg-emerald-600 text-slate-300 hover:text-white hover:scale-105 transition-all text-sm" aria-label="WhatsApp">
+              <i data-lucide="message-square" class="w-4 h-4"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Useful links -->
+        <div class="lg:col-span-3">
+          <h3 class="font-display font-medium text-white text-sm uppercase tracking-wider mb-5 pb-2 border-b border-white/5">
+            Quick Navigation
+          </h3>
+          <ul class="space-y-2 text-xs">
+            <li><a href="#home" class="text-slate-400 hover:text-white hover:underline transition-colors block py-0.5">Home Screen</a></li>
+            <li><a href="#about" class="text-slate-400 hover:text-white hover:underline transition-colors block py-0.5">Dr. Biography & Credentials</a></li>
+            <li><a href="#chambers" class="text-slate-400 hover:text-white hover:underline transition-colors block py-0.5">Chamber Visit Timings</a></li>
+            <li><a href="#fees" class="text-slate-400 hover:text-white hover:underline transition-colors block py-0.5">Booking Policy</a></li>
+            <li><a href="#appointment" class="text-slate-400 hover:text-white hover:underline transition-colors block py-0.5">Get Appointment</a></li>
+            <li><a href="#faq" class="text-slate-400 hover:text-white hover:underline transition-colors block py-0.5">FAQ Accordion Answers</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Contact & Emergency -->
+        <div class="lg:col-span-5 space-y-4">
+          <h3 class="font-display font-medium text-white text-sm uppercase tracking-wider mb-5 pb-2 border-b border-white/5">
+            Contact & Urgencies
+          </h3>
+          
+          <div class="space-y-3.5 text-xs">
+            <div class="flex items-start gap-2.5">
+              <i data-lucide="phone" class="w-4.5 h-4.5 text-blue-400 shrink-0 mt-0.5"></i>
+              <div>
+                <p class="font-bold text-slate-400">Assistant Phone / Booking Line</p>
+                <a href="tel:01712345678" class="text-slate-200 font-mono font-medium hover:text-white">01712-345678</a>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-2.5">
+              <i data-lucide="mail" class="w-4.5 h-4.5 text-blue-400 shrink-0 mt-0.5"></i>
+              <div>
+                <p class="font-bold text-slate-400">Electronic Mail Address</p>
+                <p class="text-slate-200 font-light">dr.ahmedrahman@gmail.com</p>
+              </div>
+            </div>
+
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-between text-[11px] text-slate-500 gap-4">
+        <p>© 2026 Dr. Ahmed Rahman. All Medical Rights Reserved. Designed as a premium healthcare reusable portfolio template.</p>
+        <div class="flex gap-4">
+          <a href="#" class="hover:text-slate-350 underline">Privacy Policy</a>
+          <a href="#" class="hover:text-slate-350 underline">Terms of Use</a>
+          <a href="#" class="hover:text-slate-350 underline font-semibold text-blue-500">Back To top</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========================================== -->
+  <!-- 12. SPECIAL / FLOATING ELEMENTS -->
+  <!-- ========================================== -->
+  
+  <!-- Floating WhatsApp Button -->
+  <a href="https://api.whatsapp.com/send?phone=8801712345678&text=আসসালামু%20আলাইকুম।%20আমি%20ডক্টর%20আহমেদ%20রহমান%20এর%20অ্যাপয়েন্টমেন্ট%20বুকিং%20করতে%2520চাই।%2520রোগীর%2520নাম:%2520__________,%2520বয়স:%2520______,%2520চেম্বার:%2520__________।" target="_blank" rel="noopener noreferrer" class="fixed bottom-6 right-6 z-[49] flex items-center justify-center bg-emerald-500 text-white w-14 h-14 rounded-full shadow-2xl hover:bg-emerald-600 hover:scale-110 active:scale-95 transition-all shadow-emerald-500/35 border border-emerald-400/20 group hover:rotate-3" aria-label="WhatsApp Chat">
+    <svg class="w-6 h-6 fill-current text-white" viewBox="0 0 24 24">
+      <path d="M20.52 3.449A11.898 11.898 0 0 0 12 0C5.45 0 .1 5.35.1 11.9A11.84 11.84 0 0 0 1.9 17.65L0 24l6.5-1.7a11.84 11.84 0 0 0 5.46 1.35c6.55 0 11.9-5.35 11.9-11.9a11.9 11.9 0 0 0-3.34-8.301zM12 21.8c-2 0-3.96-.53-5.69-1.54l-.4-.24-4.22 1.1 1.13-4.11-.27-.42a9.79 9.79 0 0 1-1.5-5.13C2.05 6.13 6.52 1.66 12 1.66c2.66 0 5.16 1.04 7.04 2.92a9.89 9.89 0 0 1 2.92 7.03c-.01 5.48-4.48 9.95-9.96 9.95zm5.46-7.46c-.3-.15-1.78-.88-2.06-.98-.28-.1-.48-.15-.68.15-.2.3-.77.98-.95 1.18-.18.2-.35.23-.65.08-1.02-.51-1.69-.94-2.36-2.08-.18-.31-.18-.58-.03-.73.14-.14.3-.35.45-.53.15-.18.2-.3.3-.5.1-.2.05-.38-.03-.53-.08-.15-.68-1.64-.93-2.24-.25-.59-.5-.51-.68-.52-.17-.01-.38-.01-.58-.01s-.53.08-.81.38c-.28.3-1.06 1.04-1.06 2.53s1.08 2.93 1.23 3.13c.15.2 2.13 3.25 5.16 4.56.72.31 1.28.5 1.72.64.73.23 1.39.2 1.91.12.58-.09 1.78-.73 2.03-1.43.25-.7.25-1.3.17-1.43-.07-.12-.27-.2-.57-.35z"/>
+    </svg>
+    <!-- Label revealed on hover to reassure user -->
+    <span class="absolute right-16 bg-slate-900 text-white font-semibold text-[10px] px-3 py-1 rounded-lg border border-slate-800 scale-0 origin-right duration-250 group-hover:scale-100 whitespace-nowrap uppercase tracking-wider">Appointment</span>
+  </a>
+
+  <!-- Floating Scroll-to-Top Button -->
+  <button id="scroll-to-top" type="button" class="fixed bottom-24 right-6 z-[49] flex items-center justify-center bg-white hover:bg-slate-100/95 text-slate-800 w-14 h-14 rounded-full shadow-2xl scale-0 transition-all duration-300 border border-slate-105" aria-label="Scroll to top" title="Scroll To Top">
+    <i data-lucide="chevron-up" class="w-6 h-6"></i>
+  </button>
+
+  <!-- ========================================== -->
+  <!-- 13. MAIN JAVASCRIPT ENTRYPOINT -->
+  <!-- ========================================== -->
+  <script type="module" src="./script.js"></script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+{
+  "name": "Remix: MedSite Premium Doctor Portfolio",
+  "description": "A professional, mobile-responsive HTML/CSS/JS website template for doctors featuring chamber cards, appointment booking, and clean medical branding.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
